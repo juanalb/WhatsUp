@@ -1,0 +1,70 @@
+﻿@model WhatsUp.Models.Presentation_Models.ChatView
+
+@{
+    ViewBag.Title = "Chat";
+}
+
+<h2>Chat</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Model.userAccount.Name
+        </th>
+        <th>
+            @Model.chat.Accounts.First().Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.timeOfMessage)
+        </th>
+    </tr>
+        @foreach (var message in Model.messages)
+        {
+            <tr>
+                @if (message.Sender_Id == Model.userAccount.Id)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => message.MessageText)
+                    </td>
+                    <td></td>
+                }
+                else
+                {
+                    <td></td>
+                    <td>
+                        @Html.DisplayFor(modelItem => message.MessageText)
+                    </td>
+                }
+
+                <td>
+                    @Html.DisplayFor(modelItem => message.TimeOfMessage)
+                </td>
+
+            </tr>
+        }
+</table>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+           <label class="control-label col-md-2"> @Html.DisplayNameFor(model => model.messageText)</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.message.MessageText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.message.MessageText, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.message.Sender_Id, new { @Value = Model.userAccount.Id })
+                @Html.HiddenFor(model => model.message.Receiver_Id, new { @Value = Model.chat.Accounts.First().Id })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="SendMessage" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

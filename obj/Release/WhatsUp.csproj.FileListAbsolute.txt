@@ -26,3 +26,4 @@ D:\Inholland Informatica\Jaar 3\Herkansingen periode 1\Webprogrammeren MVC\Whats
 D:\Inholland Informatica\Jaar 3\Herkansingen periode 1\Webprogrammeren MVC\WhatsUpV.02\WhatsUp\obj\Release\WhatsUp.csproj.GenerateResource.Cache
 D:\Inholland Informatica\Jaar 3\Herkansingen periode 1\Webprogrammeren MVC\WhatsUpV.02\WhatsUp\obj\Release\WhatsUp.dll
 D:\Inholland Informatica\Jaar 3\Herkansingen periode 1\Webprogrammeren MVC\WhatsUpV.02\WhatsUp\obj\Release\WhatsUp.pdb
+D:\Inholland Informatica\Jaar 3\Herkansingen periode 1\Webprogrammeren MVC\WhatsUpV.02\WhatsUp\obj\Release\WhatsUp.csprojResolveAssemblyReference.cache
