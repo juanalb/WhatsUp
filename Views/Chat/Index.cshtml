@@ -1,0 +1,44 @@
+﻿@model WhatsUp.Models.Presentation_Models.ChatsView
+
+@{
+    ViewBag.Title = "Chat";
+}
+
+<h2>Chat</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.contacts.First().Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contacts.First().MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.messageText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.timeOfMessage)
+        </th>
+    </tr>
+
+    @foreach (var chat in Model.chats)
+    {
+        <td>
+            @Html.DisplayFor(modelItem => chat.Accounts.First().Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => chat.Accounts.First().MobileNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => chat.Messages.First().MessageText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => chat.Messages.First().TimeOfMessage)
+        </td>
+        <td>
+            @Html.ActionLink("Chat", "Chat", new { id = chat.Id })
+        </td>
+    }
+</table>
